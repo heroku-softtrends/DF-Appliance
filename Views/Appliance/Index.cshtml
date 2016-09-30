@@ -1,5 +1,5 @@
 ﻿@{
-    ViewData["Title"] = "Dish Washer";
+    ViewData["Title"] = "Appliance Marketing";
 }
 
 <div class="mobile-content">
@@ -11,9 +11,9 @@
         </tr>
         <tr>
             <td class="mobile-monitor-action">
-                <p>
+                <p style="margin-top:15%;">
                     <label id="lblDistance"></label>
-                    <input type="hidden" id="distance" value="100">
+                    <input type="hidden" id="distance" value="0">
                 </p>
                 <div id="slider-range-min" class="ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content">
                     <div class="ui-slider-range ui-corner-all ui-widget-header ui-slider-range-min" style="width: 5.15021%;">
@@ -23,8 +23,8 @@
         </tr>
         <tr>
             <td>
-                <div id="lblMessage" style="margin-top:30%;">&nbsp;</div>
-                <input id="btnSend" type="button" value="Start Sending Data" />
+                <div id="lblMessage">&nbsp;</div>
+                <input id="btnSend" type="button" value="Start Sending Data" class="btn-custom"/>
             </td>
         </tr>
     </table>
@@ -38,19 +38,18 @@
 
         $(function () {
             $('#spinner').hide();
-            $("#lblDistance").text('Distance to beacon: ' + $("#distance").val());
             $('#lblMessage').addClass('default-status-message').html('&nbsp;');
-
             $("#slider-range-min").slider({
                 range: "min",
-                value: 100,
-                min: 100,
-                max: 200,
+                value: 75,
+                min: 0,
+                max: 100,
                 slide: function (event, ui) {
-                    $("#lblDistance").text('Distance to beacon: ' + ui.value);
-                    $("#distance").val(ui.value);
+                    var distance = (100 - (ui ? ui.value : 75));
+                    $("#lblDistance").text('Proximity to iBeacon: ' + distance + ' ft');
+                    $("#distance").val(distance);
                     $("#imgStatus").attr('src', function () {
-                        if (ui.value > 24) {
+                        if (distance > 25) {
                             return $(this).attr('data-promo');
                         }
                         else {
@@ -59,6 +58,10 @@
                     });
                 }
             });
+            $slider = $('#slider-range-min');
+            if ($slider) {
+                $slider.slider('option', 'slide').call($slider);
+            }
 
             $('#btnSend').on('click', function (e) {
                 isSentData = !isSentData;
@@ -95,7 +98,7 @@
             if (isSentData && $ && $("#distance").val().length > 0) {
                 $('#btnSend').attr('value', (isSentData ? 'Stop Sending Data' : 'Start Sending Data'));
                 var distanceVal = parseInt($("#distance").val());
-                $('#spinner').show();
+                $('#spinner').hide();
                 $.post(urlAction, { distance: distanceVal }, function (data) {
                     isSentData = false;
                     $('#spinner').hide();

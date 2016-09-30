@@ -3,9 +3,14 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Dish Washer</title>
+    <title>@ViewData["Title"] - Appliance</title>
 
+    <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap-theme.css" />
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
     <link href="~/lib/jquery/dist/css/jquery-ui.css" rel="stylesheet" />
     <link rel="stylesheet" href="~/css/site.css" />
     <style type="text/css">
@@ -48,11 +53,11 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">Dish Washer</a>
+                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">Appliance Marketing</a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li><a asp-area="" asp-controller="Appliance" asp-action="Index">Dish Washer</a></li>
+                    <li><a asp-area="" asp-controller="Appliance" asp-action="Index">In-Store iBeacon Proximity</a></li>
                 </ul>
             </div>
         </div>
@@ -61,7 +66,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; 2016 - Dish Washer by Softtrends</p>
+            <p>&copy; 2016 - Salesforce.com</p>
         </footer>
     </div>
     <div id="spinner" style="display:block;"></div>
