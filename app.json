@@ -14,7 +14,7 @@
         "value": "Bearer iguZgpnIwr8N60cD7cYgSMbYQm9QZXEY9AaqmeD6f4d2DoyvZNEhcQdzGSSFivDylWcXR5ShTu1AfMSCJi9sAj"},
     "endpointURL": {
         "description": "IOT Cloud Endpoint URL for ingestion",
-        "value": "https://ingestion-xcdvudaz0dz3.us3.sfdcnow.com/streams/heart_rate_monito001/heart_rate_monito001/event"},
+        "value": "https://ingestion-xcdvudaz0dz3.us3.sfdcnow.com/streams/appliance_sales_e001/appliance_sales_i001/event"},
     "IRON_MQ_PROJECT_ID": {
         "description": "Heroku IronMQ Project ID for return messages from IOT Cloud ",
         "value": "57dbdea41e0aa6000858dbae"},
@@ -23,7 +23,7 @@
         "value": "pqYbPAL1MN3mf5PyBu2S"},
      "queueURL": {
         "description": "Heroku IronMQ Queue for return messages from IOT Cloud ",
-        "value": "https://mq-aws-eu-west-1-1.iron.io/3/projects/57dbdea41e0aa6000858dbae/queues/messages"}
+        "value": "https://mq-aws-eu-west-1-1.iron.io/3/projects/57dbdea41e0aa6000858dbae/queues/appliance_messages"}
     },
   "buildpacks": [
     {
